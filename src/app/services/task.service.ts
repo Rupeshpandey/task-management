@@ -6,15 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  private apiUrl = 'https://localhost:7210/api/Task/Create'; // Update with your API URL
+  private apiUrl = 'https://localhost:7210/api/Task'; // Update with your API URL
 
   constructor(private http: HttpClient) {}
 
-  getTasks(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/Task`);
+  createTask(task: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/Create`, task);
   }
 
-  createTask(task: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/Task/Create`, task);
+  assignWorkflow(taskId: number, workflowId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/AssignWorkflow`, { taskId, workflowId });
+  }
+
+  completeChecklistStep(checklistId: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}/CompleteChecklistStep?checklistId=${checklistId}`, null);
+  }
+
+  sendNotification(taskId: number, userId: number, message: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/SendNotification`, { taskId, userId, message });
   }
 }

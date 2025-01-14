@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <h2>Create Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="createTask()">
+      <div class="form-group">
+        <label for="categoryID">Category ID</label>
+        <input type="number" id="categoryID" class="form-control" formControlName="categoryID" />
+      </div>
+      <div class="form-group">
+        <label for="assignedUserID">Assigned User ID</label>
+        <input type="number" id="assignedUserID" class="form-control" formControlName="assignedUserID" />
+      </div>
+      <div class="form-group">
+        <label for="roleID">Role ID</label>
+        <input type="number" id="roleID" class="form-control" formControlName="roleID" />
+      </div>
+      <div class="form-group">
+        <label for="name">Task Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" class="form-control" formControlName="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" class="form-control" formControlName="dueDate" />
+      </div>
+      <button type="submit" class="btn btn-primary mt-2" [disabled]="taskForm.invalid">Create Task</button>
+    </form>
+  
+    <hr />
+  
+    <div class="mt-4">
+      <h2>Other Actions</h2>
+      <button class="btn btn-success" (click)="assignWorkflow(1, 1)">Assign Workflow</button>
+      <button class="btn btn-info" (click)="completeChecklistStep(1)">Complete Checklist Step</button>
+      <!-- <button class="btn btn-warning" (click)="sendNotification(1, 1, 'Task notification')">Send Notification</button> -->
+    </div>
+  </div>
+  

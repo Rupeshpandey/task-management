@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
     TaskListComponent,
     TaskCreateComponent,
     UserListComponent,
-    LoginComponent
+    LoginComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
