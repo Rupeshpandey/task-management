@@ -1,1 +1,29 @@
-<p>task-create works!</p>
+<div class="task-form-container">
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="News">News</mat-option>
+          <mat-option value="Health">Health</mat-option>
+          <mat-option value="Debate Discussion">Debate Discussion</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Sub-Category</mat-label>
+        <input matInput formControlName="subCategory" placeholder="Enter Sub-Category">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Assigned User</mat-label>
+        <input matInput formControlName="assignedUser" placeholder="Enter User Name">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Task Name</mat-label>
+        <input matInput formControlName="taskName" placeholder="Enter Task Name">
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Create Task</button>
+    </form>
+  </div>
